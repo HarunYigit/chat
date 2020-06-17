@@ -1,0 +1,177 @@
+
+<html>
+    <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript" src="kisiler.js"></script>
+    <script type="text/javascript" src="chat.js"></script>
+    <link rel='stylesheet' href='stil.css'>
+    <link rel='stylesheet' href='kisiler.css'>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="main.css" >
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+
+    <script>
+    
+     var a =setInterval(aramareklendir,1);
+    setTimeout(üüfü,1);
+    function üüfü(){
+
+
+      document.getElementById("aramatxt").style.visibility="hidden";
+      document.getElementById("altmenü").style.visibility="hidden";
+      
+    }
+       // var temp = document.getElementById('chatdiv').parentNode;
+       //child = temp.childNodes;
+       //console.log(temp.length);
+    
+       //}
+       var tık=false;
+       function animasyon(){
+         
+         var a= document.getElementById("aramakism");
+         var div = a.offsetWidth;
+         if(tık==true){
+         if(div<document.getElementById("kisiler").offsetWidth-32){
+    a.style.width=(div +5) + "px";
+         }
+         
+       }
+       else{
+        if(div>40){
+          a.style.width=(div -5) + "px";
+        }
+       }
+       if(div > 50){
+         document.getElementById("aramatxt").style.visibility="visible";
+         document.getElementById("aramaiptal").style.visibility="visible";
+         document.getElementById("aramaimg").style.visibility="hidden";
+       }
+       else{
+        document.getElementById("aramatxt").style.visibility="hidden";
+        document.getElementById("aramaiptal").style.visibility="hidden";
+        document.getElementById("aramaimg").style.visibility="visible";
+       }
+       }
+       function islem(){
+        document.getElementById("aramatxt").value="";
+    if (tık==false){
+      tık=true;
+    }
+    else{
+      tık=false;
+    }
+       
+       setInterval(animasyon,1);}
+     function aramareklendir(){
+       var a=document.activeElement;
+       if (a.id=="aramatxt"){
+      document.getElementById("aramatxt").style.background="rgb(65, 150, 165)";
+      //rgb(58, 133, 158)
+       }
+       else{
+        document.getElementById("aramatxt").style.background="rgb(58, 133, 158)";
+       }
+     }
+      
+      
+    </script>
+    <script>
+    function aramakapat(){
+      tık=false;
+      tümkisileriekleme();
+    }
+    function aratma(){
+    setTimeout(yp,1);
+    }
+    function yp(){
+      tümkisileriekleme();
+    var aranan = document.getElementById("aramatxt").value.toUpperCase();
+    
+    var kisiler=document.getElementById("asilkisiler").children.length ;
+    for(i=1;i< kisiler+1;i++){
+     var ü = document.getElementById("kis" + i);
+     console.log(i);
+    var isim = ü.children[1].innerHTML.toUpperCase();
+    if (isim.indexOf(aranan) > -1){
+    
+    }
+    else{
+      document.getElementById("asilkisiler").removeChild(ü);
+    }
+    
+    }
+    }
+    </script>
+    </head>
+    <body>
+<div class="container">
+            
+<div class="row h-0" >
+ 
+ 
+    <div id="üstmenü" class= "container"> 
+
+      <img id="kisiprofilpp" src="profilfoto.jpg"></img>
+      <p style="position:relative;left:70px;top:-55px;color:white;font-family: 'Noto Sans JP', sans-serif;">Apart<span style="color:rgb(203,150,124);font-family: 'Noto Sans JP', sans-serif;">Buddy</span> - Chat<br><span style="font-size:12px;position:relative;left:0px;top:5px;color:rgb(203,150,124);">Çevrimiçi</span></p>
+    
+      <svg id="menüasagi" onclick="menükapat()" style="background-color:tranparent;" class="">
+        <polyline style="stroke-linejoin: miter;stroke:white;stroke-width:3; fill:none;"  points="8 12,15 20,22 12" />
+      </svg>
+    
+    </div>
+
+   
+  
+<div class="col-md-3" style="padding:0px;" >
+      <div id="kisiler"  >
+         <div id="aramakism"><input id="aramatxt" onkeydown="aratma();" >  <img id="aramaimg"  onclick="islem();" src="arama.png"></img></input><button id="aramaiptal" onclick="aramakapat();">X</button></div>
+         <div id="asilkisiler"></div>
+         </div>
+        </div>
+  <div class="col-md-9" style="padding:0px;">
+    <div id="altmenü" style="visibility: visible;" class="container w-100">
+      <img class="kisiimg" onkeydown="aratma();" id="menüimg" src="profilfoto2.jpg"><p id="altmenüp">Ayşe Yazıcı<span style="font-size:13px;position: absolute;top:22px;left:-1px;">+90 533 564 51 26</span></p>
+    </div>
+    <div id="chatdiv">
+   
+  </div>
+  <div id="mesajatma" class="w-100" >
+    <button id="mesajfazla">+</button>
+    <input id="mesajtxt" placeholder="Mesaj yaz..." type="text"></input>
+    <img id="mesajıgönder" src="gönder.png" onclick="gonderme()"></img>
+
+  </div> 
+</div>
+
+</div>
+</div>
+
+    <!--<div class="kisi">
+      <img class="kisiimg" src="profilfoto.jpg">
+    <span class="kisiisim">Harun Yiğit</span>
+    <span class="sonmesaj">nasılsın napıyorsun</span>
+    </div>
+    <br>
+    <div class="kisi">
+      <img class="kisiimg" src="profilfoto2.jpg">
+    <span class="kisiisim">Mehmet Satıcı</span>
+    <span class="sonmesaj">son parayı ödemedin</span>
+    </div>
+    </div>-->
+    
+    
+    <!--<p class="kisimesaj">Naber</p>
+    <p class="mesaj">�yidir senden naber?</p>-->
+
+    <script src="kod.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="kod2.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="kod3.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    </body>
+    
+    </html>
